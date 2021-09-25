@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "306659408485",
+    "project_id": "firestoreapp-41811",
+    "storage_bucket": "firestoreapp-41811.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306659408485:android:491659241a2c1ae8ce648c",
+        "android_client_info": {
+          "package_name": "com.all.firestoreapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306659408485-nmm1j4ae2smq2n9g10a48cse2veq4hag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa-TUhP5u94em3w-kdIz18Dzq-McgatkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306659408485-nmm1j4ae2smq2n9g10a48cse2veq4hag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306659408485:android:cfc7d52862c6511fce648c",
+        "android_client_info": {
+          "package_name": "com.all.firestorecounterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306659408485-nmm1j4ae2smq2n9g10a48cse2veq4hag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa-TUhP5u94em3w-kdIz18Dzq-McgatkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306659408485-nmm1j4ae2smq2n9g10a48cse2veq4hag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
