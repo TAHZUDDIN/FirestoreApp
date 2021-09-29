@@ -1,4 +1,4 @@
-package com.all.firestorecounterapp;
+package com.all.firestorecounterapp.models;
 
 import java.io.Serializable;
 
