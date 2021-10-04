@@ -3,35 +3,50 @@ package com.all.firestorecounterapp.activities;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.all.firestorecounterapp.R;
-import com.all.firestorecounterapp.adapters.CounterAdapter;
-import com.all.firestorecounterapp.interfaces.UpdateAdapter;
 import com.all.firestorecounterapp.models.CounterModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.all.firestorecounterapp.models.SingleEntry;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity implements UpdateAdapter {
-
-    List<CounterModel> counterList;
-    RecyclerView recyclerView;
-    LinearLayoutManager llm;
-    CounterAdapter adapter;
+    public String TAG = "MainActivity";
     SharedPreferences sp;
     SharedPreferences.Editor spe;
-    UpdateAdapter updateInterface;
     private DatabaseReference db;
+
+    TextView nameOne;
+    TextView nameTwo;
+    TextView nameThree;
+
+    TextView likesOne;
+    TextView likesTwo;
+    TextView likesThree;
+
+    ImageView likedOne;
+    ImageView notlikedOne;
+
+    ImageView likedTwo;
+    ImageView notlikedTwo;
+
+    ImageView likedThree;
+    ImageView notlikedThree;
+
+    public String documentIdOne = "one";
+    public String documentIdTwo = "two";
+    public String documentIdThree = "three";
+
+    CounterModel cm;
 
 
     @Override
@@ -39,65 +54,146 @@ public class MainActivity extends AppCompatActivity implements UpdateAdapter {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        llm = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        recyclerView.setLayoutManager(llm);
-
         sp = this.getPreferences(this.MODE_PRIVATE);
         spe = sp.edit();
 
-        updateInterface = this;
-
         db = FirebaseDatabase.getInstance().getReference("LikeCounter");
 
-        counterList = new ArrayList<>();
 
-        db.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        nameOne = findViewById(R.id.nameOne);
+        nameTwo = findViewById(R.id.nameTwo);
+        nameThree = findViewById(R.id.nameThree);
+
+        likesOne = findViewById(R.id.likesOne);
+        likesTwo = findViewById(R.id.likesTwo);
+        likesThree = findViewById(R.id.likesThree);
+
+        likedOne = findViewById(R.id.likedOne);
+        notlikedOne = findViewById(R.id.notLikedOne);
+
+        likedTwo = findViewById(R.id.likedTwo);
+        notlikedTwo = findViewById(R.id.notLikedTwo);
+
+        likedThree = findViewById(R.id.likedThree);
+        notlikedThree = findViewById(R.id.notLikedThree);
+
+
+        likedOne.setOnClickListener(this);
+        notlikedOne.setOnClickListener(this);
+
+        likedTwo.setOnClickListener(this);
+        notlikedTwo.setOnClickListener(this);
+
+        likedThree.setOnClickListener(this);
+        notlikedThree.setOnClickListener(this);
+
+
+        ValueEventListener postListener = new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    DataSnapshot ds = task.getResult();
-                    counterList.clear();
-
-                    for(DataSnapshot d : ds.getChildren()){
-                        String key = d.getKey();
-                        CounterModel cm = d.getValue(CounterModel.class);
-                        cm.setDocumentId(key);
-                        counterList.add(cm);
-                    }
-                    Log.i("MainActivity","counterList "+counterList);
-                    adapter = new CounterAdapter(counterList,sp,updateInterface);
-                    recyclerView.setAdapter(adapter);
-                }
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                cm = dataSnapshot.getValue(CounterModel.class);
+                populate();
             }
-        });
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        db.addValueEventListener(postListener);
+    }
+
+
+    public void populate(){
+        likesOne.setText(cm.getOne().likes+"");
+        likesTwo.setText(cm.getTwo().likes+"");
+        likesThree.setText(cm.getThree().likes+"");
+
+        nameOne.setText(cm.getOne().name);
+        nameTwo.setText(cm.getTwo().name);
+        nameThree.setText(cm.getThree().name);
+
+        boolean oneIsLiked =  sp.getBoolean(documentIdOne,false);
+        boolean twoIsLiked =  sp.getBoolean(documentIdTwo,false);
+        boolean threeIsLiked =  sp.getBoolean(documentIdThree,false);
+
+
+        if(oneIsLiked){
+            likedOne.setVisibility(View.VISIBLE);
+            notlikedOne.setVisibility(View.GONE);
+
+        }else{
+            likedOne.setVisibility(View.GONE);
+            notlikedOne.setVisibility(View.VISIBLE);
+        }
+
+        if(twoIsLiked){
+            likedTwo.setVisibility(View.VISIBLE);
+            notlikedTwo.setVisibility(View.GONE);
+
+        }else{
+            likedTwo.setVisibility(View.GONE);
+            notlikedTwo.setVisibility(View.VISIBLE);
+        }
+
+
+        if(threeIsLiked){
+            likedThree.setVisibility(View.VISIBLE);
+            notlikedThree.setVisibility(View.GONE);
+
+        }else{
+            likedThree.setVisibility(View.GONE);
+            notlikedThree.setVisibility(View.VISIBLE);
+        }
 
     }
 
 
 
-    @Override
-    public void updateRow(CounterModel model, int index, boolean liked) {
-        long likes = model.getLikes();
-        if(liked){
-            spe.putBoolean(model.getDocumentId(),true);
+
+    public void update(SingleEntry singleEntry, String documentId, boolean liked) {
+        long likes = singleEntry.likes;
+        if (liked) {
+            spe.putBoolean(documentId, true);
             likes++;
-        }else{
-            spe.putBoolean(model.getDocumentId(),false);
+        } else {
+            spe.putBoolean(documentId, false);
             likes--;
         }
         spe.commit();
 
-        model.setLikes(likes);
-
-        db.child(model.getDocumentId()).child("likes").setValue(likes);
-
-        counterList.set(index,model);
-        adapter.notifyItemChanged(index);
+        db.child(documentId).child("likes").setValue(likes);
     }
+
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.likedOne:
+                update(cm.getOne(), documentIdOne, false);
+                break;
+            case R.id.notLikedOne:
+                update(cm.getOne(), documentIdOne, true);
+                break;
+            case R.id.likedTwo:
+                update(cm.getTwo(), documentIdTwo, false);
+                break;
+            case R.id.notLikedTwo:
+                update(cm.getTwo(), documentIdTwo, true);
+                break;
+            case R.id.likedThree:
+                update(cm.getThree(), documentIdThree, false);
+                break;
+            case R.id.notLikedThree:
+                update(cm.getThree(), documentIdThree, true);
+                break;
+            default:
+                break;
+        }
+
+    }
+
 
 }
 

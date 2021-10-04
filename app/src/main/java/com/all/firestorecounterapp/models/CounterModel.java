@@ -1,53 +1,55 @@
 package com.all.firestorecounterapp.models;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.io.Serializable;
 
+
+@IgnoreExtraProperties
 public class CounterModel implements Serializable {
 
-    private String documentId;
-    private String name;
-    private long likes;
+    private SingleEntry one;
+    private SingleEntry two;
+    private SingleEntry three;
+
 
     public CounterModel() {
         super();
     }
 
-    public CounterModel(String name, long likes) {
-        this.name = name;
-        this.likes = likes;
+
+    public SingleEntry getOne() {
+        return one;
     }
 
-    public String getName() {
-        return name;
+    public void setOne(SingleEntry one) {
+        this.one = one;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public SingleEntry getTwo() {
+        return two;
     }
 
-    public long getLikes() {
-        return likes;
+    public void setTwo(SingleEntry two) {
+        this.two = two;
     }
 
-    public void setLikes(long likes) {
-        this.likes = likes;
+    public SingleEntry getThree() {
+        return three;
     }
 
-    public String getDocumentId() {
-        return documentId;
-    }
-
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
+    public void setThree(SingleEntry three) {
+        this.three = three;
     }
 
     @Override
     public String toString() {
         return "CounterModel{" +
-                "documentId='" + documentId + '\'' +
-                ", name='" + name + '\'' +
-                ", likes=" + likes +
+                "one=" + one +
+                ", two=" + two +
+                ", three=" + three +
                 '}';
     }
-
 }
+
+
