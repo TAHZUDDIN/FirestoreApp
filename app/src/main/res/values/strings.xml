@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">FirestoreCounterApp</string>
+
+    <string name="one">One some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="two">Two some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="three">Three some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="four">Four some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="five">Five some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="six">Six some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="seven">Seven some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
+    <string name="eight">Eight some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+
 </resources>

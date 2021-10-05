@@ -81,6 +81,14 @@ public class CounterAdapter  extends RecyclerView.Adapter<CounterAdapter.ViewHol
                 }
             });
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateInterface.onRowClick(counterModel);
+                }
+            });
+
+
         }
 
         public void bind(CounterModel model,int position){

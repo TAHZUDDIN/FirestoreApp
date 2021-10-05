@@ -1,5 +1,6 @@
 package com.all.firestorecounterapp.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements UpdateAdapter {
 
+    public String TAG = "MainActivity";
     List<CounterModel> counterList;
     RecyclerView recyclerView;
     LinearLayoutManager llm;
@@ -42,10 +44,10 @@ public class MainActivity extends AppCompatActivity implements UpdateAdapter {
         recyclerView = findViewById(R.id.recyclerView);
         llm = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(llm);
+        recyclerView.setItemAnimator(null);
 
         sp = this.getPreferences(this.MODE_PRIVATE);
         spe = sp.edit();
-
         updateInterface = this;
 
         db = FirebaseDatabase.getInstance().getReference("LikeCounter");
@@ -63,11 +65,17 @@ public class MainActivity extends AppCompatActivity implements UpdateAdapter {
                     counterList.clear();
 
                     for(DataSnapshot d : ds.getChildren()){
+
                         String key = d.getKey();
                         CounterModel cm = d.getValue(CounterModel.class);
                         cm.setDocumentId(key);
+                        int idOfString = getResources().getIdentifier(key,"string",getPackageName());
+                        String desc = getString(idOfString);
+                        cm.setDesc(desc);
                         counterList.add(cm);
+
                     }
+
                     Log.i("MainActivity","counterList "+counterList);
                     adapter = new CounterAdapter(counterList,sp,updateInterface);
                     recyclerView.setAdapter(adapter);
@@ -97,6 +105,13 @@ public class MainActivity extends AppCompatActivity implements UpdateAdapter {
 
         counterList.set(index,model);
         adapter.notifyItemChanged(index);
+    }
+
+    @Override
+    public void onRowClick(CounterModel model) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("model",model);
+        startActivity(intent);
     }
 
 }

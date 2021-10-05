@@ -7,6 +7,7 @@ public class CounterModel implements Serializable {
     private String documentId;
     private String name;
     private long likes;
+    private String desc;
 
     public CounterModel() {
         super();
@@ -41,13 +42,22 @@ public class CounterModel implements Serializable {
         this.documentId = documentId;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+
     @Override
     public String toString() {
         return "CounterModel{" +
                 "documentId='" + documentId + '\'' +
                 ", name='" + name + '\'' +
                 ", likes=" + likes +
+                ", desc='" + desc + '\'' +
                 '}';
     }
-
 }
