@@ -1,20 +1,30 @@
 <resources>
     <string name="app_name">FirestoreCounterApp</string>
 
-    <string name="one">One some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="one_desc">One some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="two">Two some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="two_desc">Two some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="three">Three some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="three_desc">Three some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="four">Four some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="four_desc">Four some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="five">Five some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="five_desc">Five some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="six">Six some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="six_desc">Six some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="seven">Seven some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="seven_desc">Seven some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
-    <string name="eight">Eight some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
+    <string name="eight_desc">Eight some text  for name some text  for name some text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for namesome text  for name some text  for namesome text  for name</string>
 
+
+
+    <string name="one_name">Alphonso Mango Milkshake</string>
+    <string name="two_name">Arise With Pomegranate</string>
+    <string name="three_name">Assam Tea</string>
+    <string name="four_name">Aztec single origin Coffee</string>
+    <string name="five_name">Café Americano</string>
+    <string name="six_name">Café Frappe</string>
+    <string name="seven_name">Café Latte</string>
+    <string name="eight_name">Café Mocha</string>
 </resources>
